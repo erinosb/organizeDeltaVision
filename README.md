@@ -3,6 +3,13 @@ This script can be used to organize Deltavision Images. This is a pre-processing
 
 # INSTALLATION 
 
+To obtain the code, use git clone to sync a copy of organizeDV to your local directory.
+
+```bash
+git clone 
+
+
+
 <tbd>
 
 # USAGE
@@ -37,7 +44,7 @@ OPTIONS:
 
 # KNOWN BUGS
 
-  * Please be aware that if your files do not increment perfectly, the Image_## folder number and the actual image number can be out of sync. If you would like to use the image file name to designate the folder name, please contact Erin Nishimura. This can be added.
+  * Please be aware that if your files do not increment perfectly, the Image_## folder number and the actual image number can move out of sync. If you would like to use the image file name to designate the folder name, please contact Erin Nishimura. This can be added.
 
 # FUTURE EXPANSION
 
