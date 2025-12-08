@@ -6,20 +6,33 @@ This script can be used to organize Deltavision Images. This is a pre-processing
 To obtain the code, use git clone to sync a copy of organizeDV to your local directory.
 
 ```bash
-git clone https://github.com/erinosb/organizeDV.git
+$ git clone https://github.com/erinosb/organizeDV.git
 ```
 
 Navigate into the obtained directory.
 
 ```bash
-cd
+$ cd organizeDV
 ```
 
 Use **chmod** to make the script organizeDV executable:
 
 ```bash
-chmod +x organizeDV
-ls -alh organizeDV
+# Check that you are located within the organizeDV directory:
+$ pwd
+~/your/file/structure/organizeDV
+
+# Check that you can see the organizeDV script listed in your working directory:
+$ls -alh
+organizeDV
+README.md
+
+# Change your permissions to allow execusion by the user:
+$ chmod +x organizeDV
+
+# Check that permissions are changed:
+$ ls -alh organizeDV
+
 ```
 
 Now, the script can be executed using the syntax: `./organizeDV` from within the directory where it is located. It should be denoted with an x in the permission code. 
