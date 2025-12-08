@@ -7,7 +7,7 @@ This script can be used to organize Deltavision Images. This is a pre-processing
 
 # USAGE
 
-**USAGE: bash organize_DV.sh [-h] [-d \<directory\>]**
+**USAGE: organize_DV.sh [-h] [-d \<directory\>]**
 
 | Option      | Value | Description    |
 | :---        | :---      | :---   |
@@ -28,7 +28,7 @@ Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must b
 ```bash
 
 USAGE:
-     bash organize_DV.sh [ -h ] [ -d <directory> ]
+     organizeDV [ -h ] [ -d <directory> ]
 
 OPTIONS:
      -h              Print usage statement\\
