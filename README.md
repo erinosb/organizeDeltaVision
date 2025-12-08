@@ -20,6 +20,6 @@ Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must b
 
  This script identifies all the R3D.dv and R3D_REF.dv files and organizes them into directories labeled Image_01, Image_02, etc.
 
-OPTIONS:
- -h              Print usage statement
+OPTIONS:\
+ -h              Print usage statement\
  -d <directory>  Default is working directory (.). Alternatively, specify the desired directory
