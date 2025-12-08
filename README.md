@@ -6,7 +6,7 @@ This script can be used to organize Deltavision Images. This is a pre-processing
 To obtain the code, use git clone to sync a copy of organizeDV to your local directory.
 
 ```bash
-git clone 
+git clone https://github.com/erinosb/organizeDV.git
 ```
 
 Navigate into the obtained directory.
