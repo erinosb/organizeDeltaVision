@@ -7,6 +7,25 @@ To obtain the code, use git clone to sync a copy of organizeDV to your local dir
 
 ```bash
 git clone 
+```
+
+Navigate into the obtained directory.
+
+```bash
+cd
+```
+
+Use **chmod** to make the script organizeDV executable:
+
+```bash
+chmod +x organizeDV
+ls -alh organizeDV
+```
+
+Now, the script can be executed using the syntax: `./organizeDV` from within the directory where it is located. It should be denoted with an x in the permission code. 
+
+To make the organizeDV script executable from anywhere in your file structure, you will need to add its working directory to your $PATH. Please understand this process before you change your $PATH.
+
 
 
 
