@@ -24,7 +24,7 @@ $ pwd
 
 # Check that you can see the organizeDV script listed in your working directory:
 $ ls -alh
--rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 license_MIT.txt
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 LICENSE
 -rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 organize_DV.sh
 -rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 README.md
 
@@ -33,7 +33,7 @@ $ chmod +x organizeDV
 
 # Check that permissions are changed:
 $ ls -alh organizeDV
--rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 license_MIT.txt
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 LICENSE
 -rwx------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 organize_DV.sh
 -rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 README.md
 ```
