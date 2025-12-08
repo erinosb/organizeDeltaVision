@@ -1,13 +1,13 @@
 # organizeDV
 This script can be used to organize Deltavision Images. This is a pre-processing step for WormLib
 
-# Installation 
+# INSTALLATION 
 
 <tbd>
 
-# Usage
+# USATE
 
-**USAGE**: bash organize_DV.sh [-h] [-d <directory>]
+**USAGE: bash organize_DV.sh [-h] [-d <directory>]**
 
 This script takes as default input the current working directory.
 
