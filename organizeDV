@@ -1,0 +1,264 @@
+#!/bin/bash
+
+## USAGE: bash organize_DV.sh [-d <directory>]
+#
+# This script takes as default input the current working directory. 
+# Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must be located within 
+# the current working directory or specified directory. File names must be specified like so:
+# N2_mRNA-1_01_R3D.dv
+# N2_mRNA-1_01_R3D_REF.dv
+# N2_mRNA-1_02_R3D.dv
+# N2_mRNA-1_02_R3D_REF.dv
+#
+# This script identifies all the R3D.dv and R3D_REF.dv files and organizes them into directories.
+# labeled Image_01, Image_02, etc.
+#
+# OPTIONS: 
+#     -d <directory>     Default is working directory (.). Alternatively, specify the desired directory
+#     
+
+## Take in any options:
+
+echo -e "\nSuccess: organizeDV executed with command line: $0"
+
+usage="\nUSAGE: organizeDV [-h] [-d <directory>]\n \
+This script takes as default input the current working directory.\n \
+Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must be located within\n \
+the current working directory or specified directory. File names must be specified like so:\n \
+	N2_mRNA-1_01_R3D.dv\n \
+	N2_mRNA-1_01_R3D_REF.dv\n \
+	N2_mRNA-1_02_R3D.dv\n \
+	N2_mRNA-1_02_R3D_REF.dv\n \
+This script identifies all the R3D.dv and R3D_REF.dv files and organizes them into directories\n \
+	labeled Image_01, Image_02, etc.\n\n \
+OPTIONS: \
+\n\t -h              Print usage statement
+\n\t-d <directory>\tDefault is working directory (.). Alternatively, specify the desired directory"
+
+
+workdir="./"
+
+while getopts "hd:" opt; do
+  case $opt in
+	h)
+		echo -e "$usage"
+		exit 0
+		;;
+    d)
+		workdir="$OPTARG"
+      	echo -e "Option -d was provided with argument: $workdir"
+      	;;
+  esac
+done
+
+# Make sure the directory name ends in a slash
+
+if [[ "${workdir: -1}" != "/" ]]; then
+  workdir="${workdir}/" # Append the slash
+fi
+
+## Identify the R3D.dv files:
+
+# Capture the delta vision files
+r3d_array=( $(ls ${workdir}*_R3D.dv) )
+# echo "${r3d_array[1]}"
+
+# Capture the deltavision ref files
+ref_array=( $(ls ${workdir}*R3D_REF.dv) )
+# echo "${ref_array[1]}"
+
+# Count how many dv files:
+howmany_dv=${#r3d_array[@]}
+
+# Count how many ref files:
+howmany_ref=${#ref_array[@]}
+ 
+# Test how many files are in r3d_array 
+if [ $howmany_dv -eq 0 ]
+then
+	# If there are no files in #r3d_array, exit
+	echo -e "\nWarning: No R3D.dv files in the current working directory"
+	echo -e "${usage}"
+	echo -e "\nWarning: Exiting with error code"
+	exit 1 
+else
+	# If there are files in #r3d_array, report which will be moved
+	echo -e "\nSuccess: Will organizing ${#r3d_array[@]} files\n"
+	echo -e "Success: Will organize the following files:"
+	j=1
+	for filename in "${r3d_array[@]}"
+		do 
+  		echo -e "\t $j \t $filename"
+  		((j++))
+		done
+	echo -e "\n"
+	
+fi
+
+# Test how many files are in ref_array 
+if [ $howmany_ref -eq 0 ]
+then
+	# If there are no files in #r3d_array, exit
+	echo -e "\nWarning: No REF_R3D.dv files in the current working directory"
+	echo -e "$usage"
+	exit 1 
+elif [ $howmany_ref -ne $howmany_dv ]
+then
+	# If the number of ref_array files do not match the number of r3d_array files, warn
+	echo "Warning: The number of R3D.dv files do not match the number of R3D_REF.dv files"
+	echo "Warning: only ${#ref_array[@]} R3D_REF.dv files"
+else
+	# Report that the file numbers match
+	echo -e "Success: The number of R3D.dv file and R3D_REF.dv files match\n"
+fi
+
+#### Start moving files ####
+
+# First, check how many files there are. If there are less than or equal to nine, use the following code:
+if [[ $howmany_dv -le 9 ]]
+	then
+
+	#echo "There are less than 9 samples"
+
+	for (( i=1; i<=$howmany_dv; i++ ))
+		do
+		
+		# Make a new directory
+		dir=${workdir}Image_0${i}
+		echo "Success: Making directory $dir"
+		mkdir -p $dir
+		
+		# Copy a .dv file into the directory
+		dv_file=${r3d_array[${i}-1]}
+		#echo $dv_file
+		echo "Success: Moving $dv_file into directory $dir"
+		mv $dv_file $dir
+		
+		# Identify a REF file...
+		ref_file1=${dv_file//_R3D/_R3D_REF}
+		ref_file2=${ref_array[${i}-1]}
+		
+		#echo "Ref file1 is: "$ref_file1
+		#echo "Ref file2 is: "$ref_file2
+		
+		# Check if ref file matches dv file
+		if [[ ${ref_file1} != ${ref_file2} ]]
+			then
+			echo "Warning: The ref file $ref_file2 does not match $dv_file "
+		
+		#
+		else
+			echo "Success: Moving $ref_file2 into directory $dir"
+			mv $ref_file2 $dir
+		fi
+			
+			echo -e "\n"
+
+	done
+fi
+
+
+# If the number of files is a two digit number: 
+if [[ $howmany_dv -gt 9 && $howmany_dv -le 99 ]]
+	then
+		
+		#echo "There are between 9 and 99 samples"
+
+		# Do the one-digit image files first:
+		for (( i=1; i<=9; i++ ))
+		do
+		
+		# Make a new directory
+		dir=${workdir}Image_0${i}
+		echo "Success: Making directory $dir"
+		mkdir -p $dir
+		
+		# Copy a .dv file into the directory
+		dv_file=${r3d_array[${i}-1]}
+		#echo $dv_file
+		echo "Success: Moving $dv_file into directory $dir"
+		mv $dv_file $dir
+		
+		# Identify a REF file...
+		ref_file1=${dv_file//_R3D/_R3D_REF}
+		ref_file2=${ref_array[${i}-1]}
+		
+		#echo "Ref file1 is: "$ref_file1
+		#echo "Ref file2 is: "$ref_file2
+		
+		# Check if ref file matches dv file
+		if [[ ${ref_file1} != ${ref_file2} ]]
+			then
+			echo "Warning: The ref file $ref_file2 does not match $dv_file "
+		
+		#
+		else
+			echo "Success: Moving $ref_file2 into directory $dir"
+			mv $ref_file2 $dir
+		fi
+			
+			echo -e "\n"
+
+	done
+	
+	# Do the two-digit image numbers next
+	for (( i=10; i<=$howmany_dv; i++ ))
+	do
+	
+		# Make a new directory
+		dir=${workdir}Image_${i}
+		echo "Success: Making directory $dir"
+		mkdir -p $dir
+	
+		# Copy a .dv file into the directory
+		dv_file=${r3d_array[${i}-1]}
+		#echo $dv_file
+		echo "Success: Moving $dv_file into directory $dir"
+		mv $dv_file $dir
+	
+		# Identify a REF file...
+		ref_file1=${dv_file//_R3D/_R3D_REF}
+		ref_file2=${ref_array[${i}-1]}
+	
+		# echo "Ref file1 is: "$ref_file1
+		# echo "Ref file2 is: "$ref_file2
+	
+		# Check if ref file matches dv file
+		if [[ ${ref_file1} != ${ref_file2} ]]
+		then
+			echo "Warning: The ref file $ref_file2 does not match $dv_file "
+	
+		# Copy the ref file into the directory
+		else
+			echo "Success: Moving $ref_file2 into directory $dir"
+			mv $ref_file2 $dir
+		fi
+		
+		echo -e "\n"
+	done
+	
+fi
+
+# Warn the user that if they have more than 99 files, there will be issues. We can change this later.
+if [[ $howmany_dv -gt 100 ]]
+then
+	echo "Warning: No support for more than 99 images. Contact developers for upgrade."
+fi
+
+
+#### Optional: move the log files into a log_files directory ####
+mkdir -p ${workdir}log_files
+
+# Make an array of the logfiles
+logs=( $(ls ${workdir}*.log) )
+
+# If the logfiles array exists, move log files
+if [ ${#logs[@]} -gt 0 ]
+then
+	echo "Success: Moving log files into directory ${workdir}log_files"
+	mv ${workdir}*.log ${workdir}log_files
+
+# Else, let the user know there are no log files	
+else
+	echo "Success: No log files to organize"
+fi
