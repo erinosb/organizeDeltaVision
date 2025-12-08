@@ -17,7 +17,7 @@ Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must b
   * N2_mRNA-1_01_R3D_REF.dv
   * N2_mRNA-1_02_R3D.dv
   * N2_mRNA-1_02_R3D_REF.dv
-  * 
+
  This script identifies all the R3D.dv and R3D_REF.dv files and organizes them into directories labeled Image_01, Image_02, etc.
 
 OPTIONS:
