@@ -12,7 +12,7 @@ This script can be used to organize Deltavision Images. This is a pre-processing
 | Option      | Value | Description    |
 | :---        | :---      | :---   |
 | -h      |        | Help. Print usage statement   |
-| -d   | <directory>        | Default is working directory (.). Alternatively, specify the desired directory   |
+| -d   | \<directory\>        | Default is working directory (.). Alternatively, specify the desired directory   |
 
 This script takes as default input the current working directory.
 
