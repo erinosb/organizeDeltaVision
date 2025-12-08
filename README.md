@@ -34,3 +34,14 @@ OPTIONS:
      -h              Print usage statement\\
      -d <directory>  Default is working directory (.). Alternatively, specify the desired directory
 ```
+
+# KNOWN BUGS
+
+  * Please be aware that if your files do not increment perfectly, the Image_## folder number and the actual image number can be out of sync. If you would like to use the image file name to designate the folder name, please contact Erin Nishimura. This can be added.
+
+# FUTURE EXPANSION
+
+Ideas for future expanstion will go here.
+
+
+
