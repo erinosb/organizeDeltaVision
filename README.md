@@ -23,16 +23,19 @@ $ pwd
 ~/your/file/structure/organizeDV
 
 # Check that you can see the organizeDV script listed in your working directory:
-$ls -alh
-organizeDV
-README.md
+$ ls -alh
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 license_MIT.txt
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 organize_DV.sh
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 README.md
 
 # Change your permissions to allow execusion by the user:
 $ chmod +x organizeDV
 
 # Check that permissions are changed:
 $ ls -alh organizeDV
-
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 license_MIT.txt
+-rwx------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 organize_DV.sh
+-rw-------@ 1 erinnishimura  staff   6.6K Dec  8 14:28 README.md
 ```
 
 Now, the script can be executed using the syntax: `./organizeDV` from within the directory where it is located. It should be denoted with an x in the permission code. 
