@@ -102,6 +102,8 @@ USAGE: organizeDV [-h] [-d <directory>]
 
 Start with a file structure on the left. End up with a file structure on the right. 
 
+![Image of file structure before and after](images/251208_images.jpg "organizeDV transformation")
+
 
 
 # USAGE
