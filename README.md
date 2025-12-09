@@ -12,7 +12,7 @@ $ git clone https://github.com/erinosb/organizeDV.git
 Navigate into the obtained directory:
 
 ```bash
-$ cd organizeDV
+$ cd organizeDeltaVision
 ```
 
 Use **chmod** to make the script organizeDV executable:
@@ -20,7 +20,7 @@ Use **chmod** to make the script organizeDV executable:
 ```bash
 # Check that you are located within the organizeDV directory:
 $ pwd
-~/your/file/structure/organizeDV
+~/your/file/structure/organizeDeltaVision
 
 # Check that you can see the organizeDV script listed in your working directory:
 $ ls -alh
