@@ -59,22 +59,19 @@ $ pwd
 
 # Use ls -alh to find your .zshrc file
 # Consider making a backup of your .zshrc file before changing it:
-
 $ cp .zshrc 251208_zshrc_backup.txt
 
 # Next, use nano to open your .zshrc to edit it:
-
 $ nano .zshrc
 
 # Modify the following line of code to include the absolute path your wrote down at the beginning of this code chunk. Follow Tony Stark's lead like so. His pwd was /Users/tonystark/myscripts/oranizeDeltaVision. Copy your corresponding line to the end of the .zshrc file:
-
 export PATH="$PATH:/Users/tonystark/myscripts/oranizeDeltaVision"
 
 # Save the file using CTRL + X. Type "Y" to accept the changes
 
 # Source new .zshrc using the following command: 
-
 $ source .zshrc
+
 ```
 
 You should now be able to test out organizeDV like so...
