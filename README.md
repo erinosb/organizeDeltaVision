@@ -98,10 +98,11 @@ USAGE: organizeDV [-h] [-d <directory>]
 	-d <directory>	Default is working directory (.). Alternatively, specify the desired directory
 ```
 
+# OPERATION
+
+Start with a file structure on the left. End up with a file structure on the right. 
 
 
-
-<tbd>
 
 # USAGE
 
