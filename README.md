@@ -139,6 +139,7 @@ OPTIONS:
 # KNOWN BUGS
 
   * Please be aware that if your files do not increment perfectly, the Image_## folder number and the actual image number can move out of sync. If you would like to use the image file name to designate the folder name, please contact Erin Nishimura. This can be added.
+  * This script doesn't work for > 99 _R3D.dv files. 
 
 # FUTURE EXPANSION
 
