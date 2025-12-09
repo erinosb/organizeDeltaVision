@@ -132,7 +132,7 @@ USAGE:
      organizeDV [ -h ] [ -d <directory> ]
 
 OPTIONS:
-     -h              Print usage statement\\
+     -h              Print usage statement
      -d <directory>  Default is working directory (.). Alternatively, specify the desired directory
 ```
 
