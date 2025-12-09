@@ -46,7 +46,7 @@ To make the organizeDV script executable from anywhere in your file structure, y
 
 ```bash
 
-# Look up the working directory and copy down the absolute address in a scratch space
+# Look up the working directory that contains organizeDV and copy down the absolute address in a scratch space
 $ pwd
 /Users/tonystark/myscripts/oranizeDeltaVision
 
