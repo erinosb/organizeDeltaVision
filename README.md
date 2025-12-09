@@ -44,13 +44,15 @@ Now, the script can be executed using the syntax: `./organizeDV` from within the
 
 To make the organizeDV script executable from anywhere in your file structure, you will need to add its working directory to your $PATH. Please understand this process before you change your $PATH.
 
+MacOS instructions are given below. Linux instructions should be quite similar though the example file paths will differ.
+
 ```bash
 
-# Look up the working directory that contains organizeDV and copy down the absolute address in a scratch space
+# Look up the working directory that contains organizeDV and copy down the absolute address in a scratch space. I'll show an example of Tony Stark's file structure. Yours may look different.
 $ pwd
 /Users/tonystark/myscripts/oranizeDeltaVision
 
-# Go to your home directory:
+# Go to your home directory. Example of Tony Stark's. Your should reflect your own name.
 $ cd
 $ pwd
 /Users/tonystark/
@@ -64,13 +66,13 @@ $ cp .zshrc 251208_zshrc_backup.txt
 
 $ nano .zshrc
 
-# Modify the following line of code to include the absolute path your wrote down at the beginning of this code chunk. Follow Tony Stark's lead like so. His pwd was /Users/tonystark/myscripts/oranizeDeltaVision
+# Modify the following line of code to include the absolute path your wrote down at the beginning of this code chunk. Follow Tony Stark's lead like so. His pwd was /Users/tonystark/myscripts/oranizeDeltaVision. Copy your corresponding line to the end of the .zshrc file:
 
 export PATH="$PATH:/Users/tonystark/myscripts/oranizeDeltaVision"
 
 # Save the file using CTRL + X. Type "Y" to accept the changes
 
-# Source new .zshrc using the following:
+# Source new .zshrc using the following command: 
 
 $ source .zshrc
 ```
