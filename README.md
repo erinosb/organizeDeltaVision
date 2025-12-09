@@ -79,9 +79,9 @@ You should now be able to test out organizeDV like so...
 ```bash
 $ organizeDV -h
 
-Success: organizeDV executed with command line: /Users/erinnishimura/Dropbox/github/organizeDeltaVision/organizeDV
+Success: organizeDV executed with command line: organizeDV -h
 
-USAGE: organizeDV [-h] [-d <directory>]
+USAGE: organizeDV [ -h ] [ -d <directory> ]
  This script takes as default input the current working directory.
  Deltavision image files (_R3D.dv) and reference image files (_R3D_REF.dv) must be located within
  the current working directory or specified directory. File names must be specified like so:
@@ -94,7 +94,6 @@ USAGE: organizeDV [-h] [-d <directory>]
 
  OPTIONS: 
 	 -h              Print usage statement
-
 	-d <directory>	Default is working directory (.). Alternatively, specify the desired directory
 ```
 
